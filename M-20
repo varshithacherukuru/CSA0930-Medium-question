@@ -11,7 +11,7 @@ public class SumOfNNumbers {
             arr[i] = scanner.nextInt();
         }
         int sum = 0;
-        for (int i = 0; i <= N; i++) { // throws ArrayIndexOutOfBoundsException when i equals N
+        for (int i = 0; i <= N; i++) { 
             sum += arr[i];
         }
         System.out.println("The sum of the " + N + " numbers is: " + sum);

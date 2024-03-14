@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+public class PrimeChecker implements Runnable {
+    private int number;
+
+    public PrimeChecker(int number) {
+        this.number = number;
+    }
+
+    @Override
+    public void run() {
+        if (isPrime(number)) {
+            System.out.println(number + " is Prime");
+        } else {
+            System.out.println(number + " is not Prime");
+        }
+    }
+
+    private boolean isPrime(int number) {
+        if (number <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the value of N: ");
+        int N = scanner.nextInt();
+        Thread[] threads = new Thread[N];
+        for (int i = 0; i < N; i++) {
+            System.out.print("Enter number " + (i + 1) + ": ");
+            int number = scanner.nextInt();
+            PrimeChecker primeChecker = new PrimeChecker(number);
+            threads[i] = new Thread(primeChecker);
+            threads[i].start();
+        }
+        for (Thread thread : threads) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}

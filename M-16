@@ -1,0 +1,30 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Bank {
+    private static Map<String, Double> bankInterestRates = new HashMap<>();
+
+    static {
+        bankInterestRates.put("SBI", 8.4);
+        bankInterestRates.put("ICICI", 7.3);
+        bankInterestRates.put("AXIS", 9.7);
+    }
+
+    public static double getInterestRate(String bankName) {
+        if (bankInterestRates.containsKey(bankName)) {
+            return bankInterestRates.get(bankName);
+        } else {
+            return -1.0;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter bank name:");
+        String bankName = scanner.next();
+
+        System.out.println("Interest rate for " + bankName + " is: " + getInterestRate(bankName));
+    }
+}

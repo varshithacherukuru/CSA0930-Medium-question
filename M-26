@@ -5,22 +5,22 @@ public class BankDetails {
     public static void main(String[] args) {
         HashMap<Integer, String> bankDetails = new HashMap<>();
 
-        // Add 3 records
+     
         bankDetails.put(123456, "John Doe");
         bankDetails.put(234567, "Jane Smith");
         bankDetails.put(345678, "Bob Johnson");
 
-        // Display the size of HashTable
+       
         System.out.println("Size of HashTable: " + bankDetails.size());
 
-        // Clear the HashTable
+       
         bankDetails.clear();
         System.out.println("HashTable cleared.");
 
-        // Add another record
+     
         bankDetails.put(456789, "Alice Davis");
 
-        // Display the size of HashTable
+        
         System.out.println("Size of HashTable after adding another record: " + bankDetails.size());
     }
 }

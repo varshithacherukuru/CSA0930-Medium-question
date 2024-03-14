@@ -1,0 +1,65 @@
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.Map;
+
+public class EmployeeRecord {
+    public static void main(String[] args) {
+        Map<Integer, Employee> employeeRecords = new HashMap<>();
+
+        // Add objects
+        employeeRecords.put(1, new Employee("John Doe", 30, "Software Engineer"));
+        employeeRecords.put(2, new Employee("Jane Smith", 35, "Project Manager"));
+        employeeRecords.put(3, new Employee("Bob Johnson", 40, "Technical Lead"));
+
+        // Display the size of Map
+        System.out.println("Size of Map: " + employeeRecords.size());
+
+        // Check if Map is empty or not
+        System.out.println("Is Map empty? " + employeeRecords.isEmpty());
+
+        // Remove specified object
+        employeeRecords.remove(2);
+        System.out.println("Size of Map after removing an object: " + employeeRecords.size());
+
+        // Clear the Map
+        employeeRecords.clear();
+        System.out.println("Map cleared.");
+    }
+}
+
+class Employee {
+    private String name;
+    private int age;
+    private String designation;
+
+    public Employee(String name, int age, String designation) {
+        this.name = name;
+        this.age = age;
+        this.designation = designation;
+    }
+
+    // Getters and setters for the private variables
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
+}

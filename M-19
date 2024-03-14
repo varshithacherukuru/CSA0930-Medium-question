@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+class Fibonacci implements Runnable {
+    private int num;
+
+    public Fibonacci(int num) {
+        this.num = num;
+    }
+
+    public void run() {
+        int firstTerm = 0;
+        int secondTerm = 1;
+        System.out.println("Fibonacci Series up to " + num + ":");
+        for (int i = 0; i <= num; i++) {
+            System.out.print(firstTerm + " ");
+            int nextTerm = firstTerm + secondTerm;
+            firstTerm = secondTerm;
+            secondTerm = nextTerm;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the number up to which the Fibonacci series should be generated:");
+        int num = scanner.nextInt();
+        Fibonacci fib = new Fibonacci(num);
+        Thread thread = new Thread(fib);
+        thread.start();
+    }
+}

@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class StringOperations {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+
+      
+        String replaced = input.replace("Saveetha", "GeeksforGeeks");
+        System.out.println("Replaced: " + replaced);
+
+      
+        int length = input.length();
+        System.out.println("Length: " + length);
+
+        // Uppercase Conversion
+        String uppercase = input.toUpperCase();
+        System.out.println("Uppercase: " + uppercase);
+    }
+}

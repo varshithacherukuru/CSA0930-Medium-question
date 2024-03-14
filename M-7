@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter the value of N:");
+        int n = scanner.nextInt();
+
+        if (n <= 0) {
+            System.out.println("Invalid value of N.");
+            return;
+        }
+
+        int count = 0;
+        int i = 1;
+        System.out.println("First " + n + " perfect numbers are:");
+        while (count < n) {
+            int sum = 0;
+            for (int j = 1; j < i; j++) {
+                if (i % j == 0) {
+                    sum += j;
+                }
+            }
+            if (sum == i) {
+                System.out.print(i + " ");
+                count++;
+            }
+            i++;
+        }
+    }
+}

@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int countPositive = 0;
+        int sumPositive = 0;
+        int countNegative = 0;
+        int sumNegative = 0;
+
+        System.out.println("Enter -1 to exit...");
+        System.out.println("Enter the number:");
+        double num = scanner.nextDouble();
+
+        while (num != -1) {
+            if (num > 0) {
+                sumPositive += num;
+                countPositive++;
+            } else if (num < 0) {
+                sumNegative += num;
+                countNegative++;
+            }
+
+            System.out.println("Enter the number:");
+            num = scanner.nextDouble();
+        }
+
+        if (countPositive == 0) {
+            System.out.println("The average of positive numbers is: 0.0");
+        } else {
+            System.out.printf("The average of positive numbers is : %.4f\n", (double) sumPositive / countPositive);
+        }
+
+        if (countNegative == 0) {
+            System.out.println("The average of negative numbers is: 0.0");
+        } else {
+            System.out.printf("The average of negative numbers is : %.4f\n", (double) sumNegative / countNegative);
+        }
+    }
+}

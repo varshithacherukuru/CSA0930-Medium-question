@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class ProvidentFundCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter employee's basic salary: ");
+        double basicSalary = scanner.nextDouble();
+
+        try {
+            // Calculate Provident Fund rate
+            double providentFundRate = calculateProvidentFundRate(basicSalary);
+            System.out.println("Provident Fund Rate: " + providentFundRate + "%");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            scanner.close(); // Close the scanner in the finally block
+        }
+    }
+
+    private static double calculateProvidentFundRate(double basicSalary) {
+        if (basicSalary < 0) {
+            throw new IllegalArgumentException("Basic salary cannot be negative");
+        } else if (basicSalary <= 5000) {
+            return 8.0; // Provident Fund rate for basic salary <= 5000
+        } else if (basicSalary <= 10000) {
+            return 9.0; // Provident Fund rate for basic salary <= 10000
+        } else {
+            return 10.0; // Provident Fund rate for basic salary > 10000
+        }
+    }
+}

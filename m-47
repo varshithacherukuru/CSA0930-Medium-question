@@ -1,0 +1,32 @@
+// Interface IterF1
+interface IterF1 {
+    void add(int a, int b); // Method to add two numbers
+    void sub(int a, int b); // Method to subtract two numbers
+}
+
+// Class implementing IterF1 interface
+class Calculator implements IterF1 {
+    @Override
+    public void add(int a, int b) {
+        System.out.println("Sum: " + (a + b));
+    }
+
+    @Override
+    public void sub(int a, int b) {
+        System.out.println("Difference: " + (a - b));
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        Calculator calculator = new Calculator();
+
+        // Calling the overloaded add() method
+        calculator.add(5, 3); // Output: Sum: 8
+
+        // Calling the overloaded sub() method
+        calculator.sub(5, 3); // Output: Difference: 2
+    }
+}
+

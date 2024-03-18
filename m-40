@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class ExamRoom {
+    private int n;
+    private List<Integer> seats;
+
+    public ExamRoom(int n) {
+        this.n = n;
+        this.seats = new ArrayList<>();
+    }
+
+    public int seat() {
+        if (seats.isEmpty()) {
+            seats.add(0);
+            return 0;
+        }
+
+        int prev = seats.get(0);
+        int dist = prev;
+        int index = 0;
+        for (int i = 1; i < seats.size(); i++) {
+            int curr = seats.get(i);
+            int newDist = (curr + prev) / 2;
+            if (newDist > dist) {
+                dist = newDist;
+                index = (curr + prev) / 2;
+            }
+            prev = curr;
+        }
+
+        if (dist == prev && index == seats.size() - 1) {
+            seats.add(n - 1);
+            return n - 1;
+        }
+
+        if (dist == 0) {
+            seats.add(0);
+            return 0;
+        }
+
+        seats.add(index, dist);
+        return dist;
+    }
+}

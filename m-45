@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+public class MatrixDisplay {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input matrix size
+        System.out.print("Enter the size of the square matrix (N): ");
+        int n = scanner.nextInt();
+
+        // Input matrix elements
+        System.out.println("Enter the elements of the matrix:");
+        int[][] matrix = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
+
+        // Display matrix row-wise
+        System.out.println("Matrix displayed row-wise:");
+        displayRowWise(matrix);
+
+        // Display matrix column-wise
+        System.out.println("Matrix displayed column-wise:");
+        displayColumnWise(matrix);
+
+        scanner.close();
+    }
+
+    // Method to display matrix row-wise
+    private static void displayRowWise(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    // Method to display matrix column-wise
+    private static void displayColumnWise(int[][] matrix) {
+        for (int j = 0; j < matrix[0].length; j++) {
+            for (int i = 0; i < matrix.length; i++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+

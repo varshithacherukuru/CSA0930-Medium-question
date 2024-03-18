@@ -1,0 +1,27 @@
+public class PowFunction {
+
+    public static void main(String[] args) {
+        double x = 2.00000;
+        int n = 10;
+        double result = pow(x, n);
+        System.out.println("Result: " + result);
+    }
+
+    public static double pow(double x, int n) {
+        if (n == 0) {
+            return 1;
+        }
+
+        if (n < 0) {
+            x = 1 / x;
+            n = -n;
+        }
+
+        double result = 1;
+        for (int i = 1; i <= n; i++) {
+            result *= x;
+        }
+
+        return result;
+    }
+}
